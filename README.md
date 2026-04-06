@@ -21,10 +21,6 @@ npm run dev
 After running the server, open:
 
 http://localhost:5173
-📜 Available Scripts
-Command	Description
-npm run dev	Start development server
-npm run build	Build for production
 npm run preview	Preview production build
 ⚡ Tech Stack
 ⚛️ React
