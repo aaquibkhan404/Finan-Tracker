@@ -20,10 +20,10 @@ export default function Charts() {
   const { data, darkMode } = useApp();
 
   // ── Derived values for area chart 
-  const gridColor    = darkMode ? "#334155" : "#E5E7EB";
-  const tickColor    = darkMode ? "#64748B" : "#9CA3AF";
-  const tooltipBg    = darkMode ? "#1E293B" : "#FFFFFF";
-  const tooltipBorder= darkMode ? "#334155" : "#E2E8F0";
+  const gridColor = darkMode ? "#334155" : "#E5E7EB";
+  const tickColor = darkMode ? "#64748B" : "#9CA3AF";
+  const tooltipBg = darkMode ? "#1E293B" : "#FFFFFF";
+  const tooltipBorder = darkMode ? "#334155" : "#E2E8F0";
   const tooltipLabel = darkMode ? "#94A3B8" : "#9CA3AF";
   const tooltipValue = darkMode ? "#F1F5F9" : "#1E293B";
 
@@ -45,11 +45,10 @@ export default function Charts() {
 
   const totalExpense = categoryData.reduce((s, d) => s + d.value, 0);
 
-  const cardClass = `border rounded-2xl p-6 h-[420px] flex flex-col transition-colors duration-300 ${
-    darkMode ? "bg-slate-800 border-slate-700" : "bg-white border-slate-200"
-  }`;
+  const cardClass = `border rounded-2xl p-6 h-[420px] flex flex-col transition-colors duration-300 ${darkMode ? "bg-slate-800 border-slate-700" : "bg-white border-slate-200"
+    }`;
 
-  
+
   const AreaTooltip = ({ active, payload, label }) => {
     if (!active || !payload?.length) return null;
     return (
@@ -65,7 +64,7 @@ export default function Charts() {
   const CategoryTooltip = ({ active, payload }) => {
     if (!active || !payload?.length) return null;
     const item = payload[0];
-    const pct  = totalExpense > 0 ? Math.round((item.value / totalExpense) * 100) : 0;
+    const pct = totalExpense > 0 ? Math.round((item.value / totalExpense) * 100) : 0;
     return (
       <div
         style={{
@@ -101,7 +100,7 @@ export default function Charts() {
             <AreaChart data={data} margin={{ top: 10, right: 20, left: 20, bottom: 0 }}>
               <defs>
                 <linearGradient id="colorAmount" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%"  stopColor="#3B82F6" stopOpacity={darkMode ? 0.3 : 0.4} />
+                  <stop offset="5%" stopColor="#3B82F6" stopOpacity={darkMode ? 0.3 : 0.4} />
                   <stop offset="95%" stopColor="#3B82F6" stopOpacity={0} />
                 </linearGradient>
               </defs>
@@ -118,7 +117,7 @@ export default function Charts() {
 
       {/* ── Spending by Category Donut ───────────────────────────────── */}
       <div className={cardClass}>
-        
+
         <div className="flex items-center justify-between mb-2">
           <h3 className={`font-bold text-base ${darkMode ? "text-white" : "text-slate-800"}`}>
             Spending by Category
@@ -170,7 +169,7 @@ export default function Charts() {
           )}
         </div>
 
-        
+
         <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 mt-2 px-1">
           {categoryData.map((entry) => {
             const pct = totalExpense > 0 ? Math.round((entry.value / totalExpense) * 100) : 0;
