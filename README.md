@@ -1,26 +1,33 @@
-Requirements for running on localhost.
-Node Version uisng v20.20.2
+🚀 Requirements to Run Locally
 
-{
-  "name": "finance-dashboard",
-  "private": true,
-  "version": "1.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "recharts": "^2.10.0"
-  },
-  "devDependencies": {
-    "vite": "^5.0.0",
-    "@vitejs/plugin-react": "^4.0.0",
-    "tailwindcss": "^3.4.0",
-    "postcss": "^8.4.0",
-    "autoprefixer": "^10.4.0"
-  }
-}
+To run this project on your local machine, make sure you have the following installed:
+
+🛠️ Prerequisites
+Node.js (Recommended: v20.20.2)
+npm (comes with Node.js)
+📦 Installation & Setup
+
+Follow these steps to get the project running:
+
+1️⃣ Clone the Repository
+git clone https://github.com/your-username/finance-dashboard.git
+cd finance-dashboard
+2️⃣ Install Dependencies
+npm install
+3️⃣ Run Development Server
+npm run dev
+🌐 Open in Browser
+
+After running the server, open:
+
+http://localhost:5173
+📜 Available Scripts
+Command	Description
+npm run dev	Start development server
+npm run build	Build for production
+npm run preview	Preview production build
+⚡ Tech Stack
+⚛️ React
+⚡ Vite
+🎨 Tailwind CSS
+📊 Recharts
