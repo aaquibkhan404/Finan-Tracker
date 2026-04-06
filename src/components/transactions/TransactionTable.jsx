@@ -31,7 +31,7 @@ function AddTransactionModal({ onClose, onSave }) {
         className="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl w-full max-w-md overflow-hidden animate-modal"
         style={{ animation: "modalIn 0.22s cubic-bezier(.4,0,.2,1) both" }}
       >
-        
+
         <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-slate-100 dark:border-slate-700">
           <div>
             <h2 className="text-lg font-extrabold text-slate-800 dark:text-white tracking-tight">Add Transaction</h2>
@@ -45,9 +45,9 @@ function AddTransactionModal({ onClose, onSave }) {
           </button>
         </div>
 
-    
+
         <form onSubmit={handleSubmit} className="px-6 py-5 space-y-4">
-          
+
           <div>
             <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2">Type</label>
             <div className="flex gap-2">
@@ -56,13 +56,12 @@ function AddTransactionModal({ onClose, onSave }) {
                   key={t}
                   type="button"
                   onClick={() => setForm(f => ({ ...f, type: t }))}
-                  className={`flex-1 py-2 rounded-xl text-xs font-bold uppercase tracking-wide border transition-all ${
-                    form.type === t
+                  className={`flex-1 py-2 rounded-xl text-xs font-bold uppercase tracking-wide border transition-all ${form.type === t
                       ? t === "income"
                         ? "bg-emerald-600 text-white border-emerald-600"
                         : "bg-red-500 text-white border-red-500"
                       : "bg-white dark:bg-slate-700 text-slate-400 dark:text-slate-400 border-slate-200 dark:border-slate-600 hover:border-slate-300"
-                  }`}
+                    }`}
                 >
                   {t === "income" ? "⬆ Income" : "⬇ Expense"}
                 </button>
@@ -70,7 +69,7 @@ function AddTransactionModal({ onClose, onSave }) {
             </div>
           </div>
 
-         
+
           <div>
             <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1.5">Category</label>
             <input
@@ -94,7 +93,7 @@ function AddTransactionModal({ onClose, onSave }) {
             />
           </div>
 
-        
+
           <div>
             <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1.5">Date</label>
             <input
@@ -109,7 +108,7 @@ function AddTransactionModal({ onClose, onSave }) {
             <p className="text-xs text-red-500 font-semibold bg-red-50 dark:bg-red-900/20 px-3 py-2 rounded-lg border border-red-100 dark:border-red-800">{error}</p>
           )}
 
-          
+
           <div className="flex gap-3 pt-1">
             <button
               type="button"
@@ -147,7 +146,7 @@ export default function TransactionTable() {
   const filtered = data.filter((t) =>
     t.category.toLowerCase().includes(search.toLowerCase())
   );
-  
+
   const sorted = [...filtered].sort((a, b) => b.id - a.id);
 
   const startEdit = (t) => {
@@ -191,7 +190,7 @@ export default function TransactionTable() {
             onChange={(e) => setSearch(e.target.value)}
           />
           <div className="flex gap-2 w-full sm:w-auto">
-            
+
             <button
               onClick={exportCSV}
               title="Export transactions as CSV"
@@ -203,7 +202,7 @@ export default function TransactionTable() {
               Export
             </button>
 
-           
+
             {role === "admin" && (
               <button
                 onClick={() => setShowModal(true)}
@@ -235,16 +234,16 @@ export default function TransactionTable() {
                   {editingId === t.id ? (
                     <>
                       <td className="py-4 px-3 text-sm">
-                        <input type="date" value={editForm.date} onChange={e => setEditForm({...editForm, date: e.target.value})} className="bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 px-2 py-1.5 rounded-lg outline-none focus:border-blue-400 text-slate-700 dark:text-slate-100 text-sm box-border w-full" />
+                        <input type="date" value={editForm.date} onChange={e => setEditForm({ ...editForm, date: e.target.value })} className="bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 px-2 py-1.5 rounded-lg outline-none focus:border-blue-400 text-slate-700 dark:text-slate-100 text-sm box-border w-full" />
                       </td>
                       <td className="py-4 px-3">
-                        <input type="text" value={editForm.category} onChange={e => setEditForm({...editForm, category: e.target.value})} className="bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 px-2 py-1.5 rounded-lg outline-none focus:border-blue-400 text-slate-700 dark:text-slate-100 text-sm box-border w-full" />
+                        <input type="text" value={editForm.category} onChange={e => setEditForm({ ...editForm, category: e.target.value })} className="bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 px-2 py-1.5 rounded-lg outline-none focus:border-blue-400 text-slate-700 dark:text-slate-100 text-sm box-border w-full" />
                       </td>
                       <td className="py-4 px-3 font-bold">
-                        <input type="number" value={editForm.amount} onChange={e => setEditForm({...editForm, amount: Number(e.target.value)})} className="bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 px-2 py-1.5 rounded-lg outline-none focus:border-blue-400 text-slate-700 dark:text-slate-100 font-bold text-sm w-24 box-border" />
+                        <input type="number" value={editForm.amount} onChange={e => setEditForm({ ...editForm, amount: Number(e.target.value) })} className="bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 px-2 py-1.5 rounded-lg outline-none focus:border-blue-400 text-slate-700 dark:text-slate-100 font-bold text-sm w-24 box-border" />
                       </td>
                       <td className="py-4 px-3">
-                        <select value={editForm.type} onChange={e => setEditForm({...editForm, type: e.target.value})} className="bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 px-2 py-1.5 rounded-lg outline-none focus:border-blue-400 text-slate-700 dark:text-slate-100 font-semibold text-xs uppercase tracking-wide box-border w-full">
+                        <select value={editForm.type} onChange={e => setEditForm({ ...editForm, type: e.target.value })} className="bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 px-2 py-1.5 rounded-lg outline-none focus:border-blue-400 text-slate-700 dark:text-slate-100 font-semibold text-xs uppercase tracking-wide box-border w-full">
                           <option value="income">Income</option>
                           <option value="expense">Expense</option>
                         </select>
