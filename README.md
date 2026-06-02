@@ -20,10 +20,13 @@ npm run dev
 
 After running the server, open:
 
-http://localhost:5173
+http://localhost:port
 npm run preview	Preview production build
 ⚡ Tech Stack
 ⚛️ React
 ⚡ Vite
 🎨 Tailwind CSS
 📊 Recharts
+
+
+Live link -: https://finan-tracker-mah2i1nad-aaquibkhan404s-projects.vercel.app/
